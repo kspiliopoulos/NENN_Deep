@@ -58,7 +58,7 @@ Z^{2,j}_k(x) &= \frac{1}{N_1^{\gamma_1}}\sum^{N_1}_{\nu=1} W^{2,j,\nu}_k H^{1,\n
 H^{2,j}_k(x) &= \sigma(Z^{2,j}_k(x)),\\
 Z^{3,i}_k(x) &= \frac{1}{N_2^{\gamma_2}} \sum^{N_2}_{j=1} W^{3,i,j}_k H^{2,j}_k(X_k),\\
 H^{3,i}_k(x) &= \sigma(Z^{3,i}_k(x)),\\
-g_k^{N_1,N_2,N_3}(x) &= g^{N_1,N_2,N_3}_{\theta_k}(x) = \frac{1}{N_3^{\gamma_3}} \sum^{N_3}_{i=1} C^i_k H^{3,i}_k(x)
+g_k^{N_1,N_2,N_3}(x) &= g^{N_1,N_2,N_3}_{\theta_k}(x) = \frac{1}{N_3^{\gamma_3}} \sum_{i=1,\cdots, N_3} C^i_k H^{3,i}_k(x)
 \end{align}
 $$
 
