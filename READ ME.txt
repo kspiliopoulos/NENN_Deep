@@ -1,0 +1,207 @@
+# scalingnn
+
+This code trains and evaluates two- or three-layer neural networks on MNIST data
+
+## Files
+
+- models.py:  specifies the available neural network models
+- functions.py:  helper functions for training the models, calculating test and 
+    train accuracy, saving results, etc.
+- process.py:  main function for running the models
+- plots.py:  main function for plotting results
+- script.sh:  bash script for submitting jobs to the SCC
+
+## Parameters
+
+- dataset_name = 'mnist' or 'cifar10'
+- model_name = 'mlp2' for multi-layer perceptron with two hidden layers, 'mlp3' for multi-layer perceptron with three hidden layers
+- criterion_name = 'ce' for cross-entropy loss, 'mse' for mean squared error
+- gamma_1, gamma_2, gamma_3 = exponent in the N^{-\gamma} scaling for network 
+    normalization in layers 1, 2, or 3, respectively (used in process.py).
+    ***NOTE*** When running any code for MLP2, gamma_3 must be set to None.    
+- gamma1_list, gamma2_list, gamma3_list = list of gamma parameters for any one of the gamma's (used in plots.py)
+- hidden_units_1, hidden_units_2, hidden_units_3 = number of hidden units N for each layer
+    ***NOTE*** When running any code for MLP2, hidden_unit_3 must be set to None. 
+- epochs = number of times to iterate through the data set for training the model 
+        and calculating accuracy
+- batch_size = 20 (the number of images per batch)
+- directory = where to save / read results
+
+## Running code locally
+
+1.  Save all of the Python files above to a specific folder.
+2.  In process.py at the bottom of the file, comment out the command line 
+    parameters and specify the local parameters.
+3.  Run process.py for any combination of parameters.
+4.  To plot the results, in plots.py at the bottom of the file, specify the local parameters and certain plot function.
+5.  Run plots.py for any combination of parameters for which results from 
+    process.py have been saved.
+    
+Example 1: Train and test a two-layer neural network (MLP2)
+```python
+# PARAMETERS TO RUN LOCALLY
+dataset_name = 'mnist'
+model_name = 'mlp2'
+criterion_name = 'ce'
+gamma_1 = 0.5
+gamma_2 = 0.8
+gamma_3 = None
+hidden_units_1 = 100
+hidden_units_2 = 100
+hidden_units_3 = None
+epochs = 2
+batch_size = 20
+directory = '/project/scalingnn/09_16_2022/'
+
+process(
+    dataset_name=dataset_name,
+    model_name=model_name,
+    criterion_name=criterion_name,
+    gamma_1=gamma_1,
+    gamma_2=gamma_2,
+    gamma_3=gamma_3,
+    hidden_units_1=hidden_units_1,
+    hidden_units_2=hidden_units_2,
+    hidden_units_3=hidden_units_3,
+    epochs=epochs,
+    batch_size=batch_size,
+    directory=directory)
+```
+
+Example 2: Train and test a three-layer neural network (MLP3)
+```python
+# PARAMETERS TO RUN LOCALLY
+dataset_name = 'mnist'
+model_name = 'mlp3'
+criterion_name = 'mse'
+gamma_1 = 0.5
+gamma_2 = 0.8
+gamma_3 = 1.0
+hidden_units_1 = 100
+hidden_units_2 = 100
+hidden_units_3 = 100
+epochs = 2
+batch_size = 20
+directory = '/project/scalingnn/09_16_2022/'
+
+process(
+    dataset_name=dataset_name,
+    model_name=model_name,
+    criterion_name=criterion_name,
+    gamma_1=gamma_1,
+    gamma_2=gamma_2,
+    gamma_3=gamma_3,
+    hidden_units_1=hidden_units_1,
+    hidden_units_2=hidden_units_2,
+    hidden_units_3=hidden_units_3,
+    epochs=epochs,
+    batch_size=batch_size,
+    directory=directory)
+```
+
+Example 3: Plots and saves figures of test accuracy for lists of multiple 
+    gamma values for MLP3
+```python
+# PARAMETERS TO RUN LOCALLY
+dataset_name = 'mnist'
+model_name = 'mlp3'
+criterion_name = 'ce'
+gamma1_list = [0.5, 0.7, 1.0]
+gamma2_list = [0.5, 0.7, 1.0]
+gamma3_list = [0.5, 0.7, 1.0]
+hidden_units_1 = 100
+hidden_units_2 = 100
+hidden_units_3 = 100
+epochs = 1500
+batch_size = 20
+
+is_test_accuracy = True
+directory = '/project/scalingnn/09_16_2022/'
+    
+run_3layer_accuracy_plots(
+    dataset_name=dataset_name,
+    model_name=model_name,
+    criterion_name=criterion_name,
+    gamma1_list=gamma1_list,
+    gamma2_list=gamma2_list,
+    gamma3_list=gamma3_list,
+    hidden_units_1=hidden_units_1,
+    hidden_units_2=hidden_units_2,
+    hidden_units_3=hidden_units_3,
+    epochs=epochs,
+    batch_size=batch_size,
+    is_test_accuracy=is_test_accuracy,
+    directory=directory)
+```
+Example 4: Plots and saves figures of train accuracy for lists of multiple 
+    gamma values for MLP2
+```python
+# PARAMETERS TO RUN LOCALLY
+dataset_name = 'mnist'
+model_name = 'mlp2'
+criterion_name = 'ce'
+gamma1_list = [0.5, 0.7, 1.0]
+gamma2_list = [0.5, 0.7, 1.0]
+hidden_units_1 = 100
+hidden_units_2 = 100
+epochs = 1000
+batch_size = 20
+
+is_test_accuracy = False
+directory = '/project/scalingnn/09_16_2022/'
+    
+run_2layer_accuracy_plots(
+    dataset_name=dataset_name,
+    model_name=model_name,
+    criterion_name=criterion_name,
+    gamma1_list=gamma1_list,
+    gamma2_list=gamma2_list,
+    hidden_units_1=hidden_units_1,
+    hidden_units_2=hidden_units_2,
+    epochs=epochs,
+    batch_size=batch_size,
+    is_test_accuracy=is_test_accuracy,
+    directory=directory)
+```
+## Running code on the SCC
+
+1.  In process.py and plots.py at the bottom, comment out the local parameters 
+    and uncomment the command line parameters.
+2.  Save files to a specific directory.
+3.  Update the script, if necessary.
+4.  Submit jobs to the SCC via the terminal by specifying the script to use and 
+    the relevant parameters (in order)
+
+For example:
+```bash
+# Change directory and prepare the script
+
+cd project/scalingnn/09_16_2022/
+dos2unix script.sh
+
+# Run MLP3 model on MNIST data for different gamma1, gamma2, and gamma3 using Cross-Entropy loss
+
+for gI in 0.5 0.7 1.0
+do
+	for gII in 0.5 0.7 1.0
+	do
+		for gIII in 0.5 0.7 1.0
+		do
+			qsub script.sh 'mnist' 'mlp3' 'ce' $gI $gII $gIII 100 100 100 1500 20 '/project/scalingnn/09_16_2022'
+		done
+	done
+done
+
+
+
+# To check job status
+qstat -u jyu32
+
+# To delete jobs
+qdel #job number 
+
+# To delete all jobs
+qdel -u jyu32 
+```
+READ ME.txt
+Displaying READ ME.txt.
