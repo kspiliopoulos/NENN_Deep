@@ -45,7 +45,8 @@ $$
 
 $$
 \begin{align}
-W^{1,\nu}_{k+1} &= W^{1,\nu}_k + \frac{\alpha_1^{N_1,N_2,N_3}}{N_1^{\gamma_1}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\left(\frac{1}{N_3^{\gamma_3}}\sum_{i=1}^{N_3}C^i_k\sigma'(Z^{3,i}_k(x_k))\left(\frac{1}{N_2^{\gamma_2}}\sum_{j=1}^{N_2} W^{3,i,j}_k\sigma'(Z^{2,j}(x_k))W^{2,j,\nu}_k\right)\right)\\
+W^{1,\nu}_{k+1} &= W^{1,\nu}_k + \frac{\alpha_1^{N_1,N_2,N_3}}{N_1^{\gamma_1}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\left(\frac{1}{N_3^{\gamma_3}}    
+\sum_{i=1}^{N_3} C^i_k\sigma'(Z^{3,i}_k(x_k))\left(\frac{1}{N_2^{\gamma_2}} \sum_{j=1,\cdots, N_2} W^{3,i,j}_k\sigma'(Z^{2,j}(x_k))W^{2,j,\nu}_k\right)\right)\\
 &\qquad \qquad \times \sigma'(W^{1,\nu}_k x_k)x_k,
 \end{align}
 $$
