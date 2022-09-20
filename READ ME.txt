@@ -19,7 +19,6 @@ This code trains and evaluates two- or three-layer neural networks on MNIST data
     train accuracy, saving results, etc.
 - process.py:  main function for running the models
 - plots.py:  main function for plotting results
-- script.sh:  bash script for submitting jobs to the SCC
 
 ## Parameters
 
@@ -204,14 +203,6 @@ done
 
 
 
-# To check job status
-qstat -u jyu32
-
-# To delete jobs
-qdel #job number 
-
-# To delete all jobs
-qdel -u jyu32 
 ```
 READ ME.txt
 Displaying READ ME.txt.
