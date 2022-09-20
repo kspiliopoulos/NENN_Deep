@@ -42,10 +42,10 @@ We learn the parameters $\theta$ using stochastic gradient descent
 $$
 \begin{align}
 C^i_{k+1} &= C^i_k + \frac{\alpha_c^{N_1,N_2,N_3}}{N_3^{\gamma_3}} \left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)H^{3,i}_k(x_k),\\
-W^{1,\nu}_{k+1} &= W^{1,\nu}_k + \frac{\alpha_{W,1}^{N_1,N_2,N_3}}{N_1^{\gamma_1}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\left(\frac{1}{N_3^{\gamma_3}}\sum_{i=1}^{N_3}C^i_k\sigma'(Z^{3,i}_k(x_k))\left(\frac{1}{N_2^{\gamma_2}}\sum_{j=1}^{N_2} W^{3,i,j}_k\sigma'(Z^{2,j}(x_k))W^{2,j,\nu}_k\right)\right)\\
+W^{1,\nu}_{k+1} &= W^{1,\nu}_k + \frac{\alpha_1^{N_1,N_2,N_3}}{N_1^{\gamma_1}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\left(\frac{1}{N_3^{\gamma_3}}\sum_{i=1}^{N_3}C^i_k\sigma'(Z^{3,i}_k(x_k))\left(\frac{1}{N_2^{\gamma_2}}\sum_{j=1}^{N_2} W^{3,i,j}_k\sigma'(Z^{2,j}(x_k))W^{2,j,\nu}_k\right)\right)\\
 &\qquad \qquad \times \sigma'(W^{1,\nu}_k x_k)x_k,\\
-W^{2,i,\nu}_{k+1} &= W^{2,i,\nu}_k + \frac{\alpha_{W,2}^{N_1,N_2,N_3}}{N_1^{\gamma_1}N_2^{\gamma_2}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\frac{1}{N_3^{\gamma_3}}\sum_{i=1}^{N_3}C^i_k \sigma'(Z^{3,i}_k(x_k))W^{3,i,j}_k\sigma'(Z^{2,j}_k(x_k))H^{1,\nu}_k(x_k),\\
-W^{3,i,j}_{k+1} &= W^{3,i,j}_k + \frac{\alpha_{W,3}^{N_1,N_2,N_3}}{N_2^{\gamma_2}N_3^{\gamma_3}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)C^i_k \sigma'(Z^{3,i}_k(x_k))H^{2,j}_k(x_k),
+W^{2,i,\nu}_{k+1} &= W^{2,i,\nu}_k + \frac{\alpha_2^{N_1,N_2,N_3}}{N_1^{\gamma_1}N_2^{\gamma_2}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\frac{1}{N_3^{\gamma_3}}\sum_{i=1}^{N_3}C^i_k \sigma'(Z^{3,i}_k(x_k))W^{3,i,j}_k\sigma'(Z^{2,j}_k(x_k))H^{1,\nu}_k(x_k),\\
+W^{3,i,j}_{k+1} &= W^{3,i,j}_k + \frac{\alpha_3^{N_1,N_2,N_3}}{N_2^{\gamma_2}N_3^{\gamma_3}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)C^i_k \sigma'(Z^{3,i}_k(x_k))H^{2,j}_k(x_k),
 \end{align}
 $$
 
@@ -66,7 +66,7 @@ and
 
 $$
 \begin{align}
-\alpha_C^{N_1,N_2,N_3}, \alpha_{W,1}^{N_1,N_2,N_3}, \alpha_{W,2}^{N_1,N_2,N_3}, \alpha_{W,3}^{N_1,N_2,N_3}
+\alpha_c^{N_1,N_2,N_3}, \alpha_1^{N_1,N_2,N_3}, \alpha_2^{N_1,N_2,N_3}, \alpha_3^{N_1,N_2,N_3}
 \end{align}
 $$
 
@@ -74,8 +74,8 @@ are the learning rates. The choice of the learning rate is theoretically linked 
 
 $$
 \begin{align}
-&\alpha_C^{N_1,N_2,N_3} = \frac{1}{N_3^{2-2\gamma_3}}, &&\quad \alpha_{W,1}^{N_1,N_2,N_3} = \frac{1}{N_1^{1-2\gamma_1}N_2^{2-2\gamma_2}N_3^{3-2\gamma_3}},\\
-&\alpha_{W,2}^{N_1,N_2,N_3} = \frac{1}{N_1^{1-2\gamma_1}N_2^{1-2\gamma_2}N_3^{3-2\gamma_3}}, &&\quad \alpha_{W,3}^{N_1,N_2,N_3} = \frac{1}{N_2^{1-2\gamma_2}N_3^{2-2\gamma_3}}
+&\alpha_c^{N_1,N_2,N_3} = \frac{1}{N_3^{2-2\gamma_3}}, &&\quad \alpha_1^{N_1,N_2,N_3} = \frac{1}{N_1^{1-2\gamma_1}N_2^{2-2\gamma_2}N_3^{3-2\gamma_3}},\\
+&\alpha_2^{N_1,N_2,N_3} = \frac{1}{N_1^{1-2\gamma_1}N_2^{1-2\gamma_2}N_3^{3-2\gamma_3}}, &&\quad \alpha_3^{N_1,N_2,N_3} = \frac{1}{N_2^{1-2\gamma_2}N_3^{2-2\gamma_3}}
 \end{align}
 $$
 
