@@ -60,8 +60,8 @@ where
 
 $$
 \begin{align}
-H^{1,\nu}_k(x) &= \sigma(W^{1,\nu}_k x),\\
-Z_k^{2,j}(x) &= \frac{1}{N_1^{\gamma_1}}\sum_\nu W^{2,j,\nu}_k H^{1,\nu}_k(x),\\
+H^{1,\nu}_k(x) &= \sigma(W_k^{1,\nu} x),\\
+Z_k^{2,j}(x) &= \frac{1}{N_1^{\gamma_1}} \sum_{\nu} W^{2,j,\nu}_k H^{1,\nu}_k(x),\\
 H_k^{2,j}(x) &= \sigma(Z^{2,j}_k(x)),\\
 Z_k^{3,i}(x) &= \frac{1}{N_2^{\gamma_2}} \sum_j W^{3,i,j}_k H^{2,j}_k(X_k),\\
 H_k^{3,i}(x) &= \sigma(Z^{3,i}_k(x)),\\
