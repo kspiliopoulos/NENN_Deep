@@ -33,7 +33,7 @@ Let the objective function be
 
 $$
 \begin{align}
-\mathcal{L}(\theta) &= \frac{1}{2} E_{X,Y} (Y-g^N(X;\theta))^2.
+\mathcal{L}(\theta) &= \frac{1}{2} E_{X,Y} (Y-g_{\theta}^{N_1,N_2,N_3}(x))^2.
 \end{align}
 $$
 
