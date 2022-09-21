@@ -97,7 +97,7 @@ the variance goes down monotonically as the $\gamma_{i}$ (and specifically as th
 
 The numerical results of [9], done on MNIST [10], demonstrate that train and test accuracy monotonically increase as all the $\gamma_i$ increases to $1$. 
 
-The conclusion is that being close to the mean-field normalization  $\gamma_1=\gamma_2=\gamma_3=1$  is clearly the optimal choice!! But, for this to be realized the learning rate has to be chosen appropriately based on a theoretically informed choice as demonstrated above. 
+The conclusion is that being close to the mean-field normalization  $\gamma_1=\gamma_2=\gamma_3=1$  is clearly a great choice!! But, for this to be realized the learning rate has to be chosen appropriately based on the theoretically informed formulas provided above. 
 
 The paper [9] has the formulas for the learning rates for deep neural networks of arbitrary depth.
 
