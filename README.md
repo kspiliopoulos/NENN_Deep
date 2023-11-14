@@ -37,39 +37,8 @@ $$
 \end{align}
 $$
 
-We learn the parameters $\theta$ using stochastic gradient descent 
-
-$$
-C^i_{k+1} = C^i_k + \frac{\alpha_c^{N_1,N_2,N_3}}{N_3^{\gamma_3}} \left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)H^{3,i}_k(x_k),
-$$
-
-$$
-W^{1,\nu}_{k+1} = W_k^{1,\nu} + \frac{\alpha_1^{N_1,N_2,N_3}}{N_1^{\gamma_1}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\left(\frac{1}{N_3^{\gamma_3}}    
-\sum_i C^i_k\sigma'(Z^{3,i}_k(x_k))\left(\frac{1}{N_2^{\gamma_2}} \sum_j W^{3,i,j}_k\sigma'(Z^{2,j}(x_k))W^{2,j,\nu}_k\right)\right) \sigma'(W^{1,\nu}_k x_k)x_k,
-$$
-
-$$
-W^{2,i,\nu}_{k+1} = W_k^{2,i,\nu} + \frac{\alpha_2^{N_1,N_2,N_3}}{N_1^{\gamma_1}N_2^{\gamma_2}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)\frac{1}{N_3^{\gamma_3}} \sum_i C^i_k \sigma'(Z^{3,i}_k(x_k))W^{3,i,j}_k\sigma'(Z^{2,j}_k(x_k))H^{1,\nu}_k(x_k),
-$$
-
-$$
-W^{3,i,j}_{k+1} = W_k^{3,i,j} + \frac{\alpha_3^{N_1,N_2,N_3}}{N_2^{\gamma_2}N_3^{\gamma_3}}\left(y_k - g_k^{N_1,N_2,N_3}(x_k)\right)C^i_k \sigma'(Z^{3,i}_k(x_k))H^{2,j}_k(x_k),
-$$
-
-where
-
-$$
-\begin{align}
-H^{1,\nu}_k(x) &= \sigma(W_k^{1,\nu} x),\\
-Z_k^{2,j}(x) &= \frac{1}{N_1^{\gamma_1}} \sum_{\nu} W^{2,j,\nu}_k H^{1,\nu}_k(x),\\
-H_k^{2,j}(x) &= \sigma(Z^{2,j}_k(x)),\\
-Z_k^{3,i}(x) &= \frac{1}{N_2^{\gamma_2}} \sum_j W^{3,i,j}_k H^{2,j}_k(X_k),\\
-H_k^{3,i}(x) &= \sigma(Z^{3,i}_k(x)),\\
-g_k^{N_1,N_2,N_3}(x) &= \frac{1}{N_3^{\gamma_3}} \sum_i C^i_k H^{3,i}_k(x)
-\end{align}
-$$
-
-and
+We learn the parameters $\theta = (C^i, W^{1,\nu}, W^{2,j,\nu}, W^{3,i,j})_{i\leq N_3, j\leq N_2, \nu\leq N_1} $ using stochastic gradient descent. 
+Let
 
 $$
 \begin{align}
@@ -77,7 +46,7 @@ $$
 \end{align}
 $$
 
-are the learning rates. The choice of the learning rate is theoretically linked to the $\gamma_i$ parameters. In particular, the theory developed in [9] suggests that for this case and in order to gaurantee ***statistical robustness*** of the neural network as $N_1,N_2,N_3$ increase to infinity, the learning rate should be chosen to be of the order of
+be are the learning rates for the parameters $C$, $W^{1}}$, $W^{2}$ and $W^{3}$ respectively. The choice of the learning rate is theoretically linked to the $\gamma_i$ parameters. In particular, the theory developed in [9] suggests that for this case and in order to gaurantee ***statistical robustness*** of the neural network as $N_1,N_2,N_3$ increase to infinity, the learning rate should be chosen to be of the order of
 
 $$
 \begin{align}
