@@ -37,7 +37,7 @@ $$
 \end{align}
 $$
 
-We learn the parameters $\theta = (C^i, W^{1,\nu}, W^{2,j,\nu}, W^{3,i,j})_{i\leq N_3, j\leq N_2, \nu\leq N_1} $ using stochastic gradient descent. 
+We learn the parameters $\theta$ using stochastic gradient descent. 
 Let
 
 $$
