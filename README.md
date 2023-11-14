@@ -46,7 +46,7 @@ $$
 \end{align}
 $$
 
-be are the learning rates for the parameters $C$, $W^{1}}$, $W^{2}$ and $W^{3}$ respectively. The choice of the learning rate is theoretically linked to the $\gamma_i$ parameters. In particular, the theory developed in [9] suggests that for this case and in order to gaurantee ***statistical robustness*** of the neural network as $N_1,N_2,N_3$ increase to infinity, the learning rate should be chosen to be of the order of
+be are the learning rates for the parameters $C$, $W^{1}$, $W^{2}$ and $W^{3}$ respectively. The choice of the learning rate is theoretically linked to the $\gamma_i$ parameters. In particular, the theory developed in [9] suggests that for this case and in order to gaurantee ***statistical robustness*** of the neural network as $N_1,N_2,N_3$ increase to infinity, the learning rate should be chosen to be of the order of
 
 $$
 \begin{align}
