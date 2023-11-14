@@ -5,7 +5,9 @@ Authors of this repository are Konstantinos Spiliopoulos and Jiahui Yu.
 
 This repository contains code supporting the article
 
-Konstantinos Spiliopoulos and Jiahui Yu, "Normalization effects on deep neural networks", 2022, https://arxiv.org/abs/2209.01018.
+Konstantinos Spiliopoulos and Jiahui Yu, "Normalization effects on deep neural networks",AIMS Journal on Foundations of Data Science, 2023, Volume 5, Issue 3: pp. 389-465 
+
+https://www.aimsciences.org/article/doi/10.3934/fods.2023004
 
 ArXiv preprint: https://arxiv.org/abs/2209.01018.
 
